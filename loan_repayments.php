@@ -44,19 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Repayments</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Record Loan Repayment</h1>
-
+include('components/header.php');?>
+<div class="whole-page">
+    <div class="nav-bar-wrapper">
+        <?php include('components/navbar.php');?>
+    </div>
+    <div class="page-wrapper">
+    <?php include('components/topbar.php');?>
     <?php if ($success_message): ?>
         <p class="success"><?= $success_message ?></p>
     <?php endif; ?>
@@ -82,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Record Repayment</button>
     </form>
 
-    <a href="index.php" class="back-btn">Back to Dashboard</a>
+            </div>
+            </div>
 </body>
 </html>

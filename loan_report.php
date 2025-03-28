@@ -11,21 +11,13 @@ $report_query = $conn->query("
     LEFT JOIN loan_repayments r ON l.id = r.loan_id
     GROUP BY m.id, m.member_code, m.name
 ");
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Report</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Loan Report</h1>
-    <a href="index.php" class="back-btn">Back to Dashboard</a>
-
+include('components/header.php');?>
+<div class="whole-page">
+    <div class="nav-bar-wrapper">
+        <?php include('components/navbar.php');?>
+    </div>
+    <div class="page-wrapper">
+    <?php include('components/topbar.php');?>
     <table>
         <thead>
             <tr>
@@ -48,5 +40,7 @@ $report_query = $conn->query("
             <?php endwhile; ?>
         </tbody>
     </table>
+            </div>
+            </div>
 </body>
 </html>

@@ -1,13 +1,18 @@
 <?php
+include('components/header.php');
 session_start();
 if (!isset($_SESSION['username'])) {
     header('Location: login.php'); // Redirect to login if not logged in
     exit;
 }
 ?>
-
-
-<?php
+<div class="whole-page">
+    <div class="nav-bar-wrapper">
+        <?php include('components/navbar.php');?>
+    </div>
+    <div class="page-wrapper">
+    <?php include('components/topbar.php');?>
+    <?php
 // Database connection
 require 'config.php';
 
@@ -80,117 +85,20 @@ $net_savings_query = $conn->query("
 ");
 
 // Page header
-echo "<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Family Chama Dashboard</title>
-    <link rel='stylesheet' href='style.css'>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #0056b3;
-            text-align: center;
-        }
-        nav {
-            background-color: #0056b3;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-        nav a {
-            color: white;
-            margin-right: 15px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .section {
-            background: #f9f9f9;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-left: 5px solid #0056b3;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #0056b3;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .filter-form {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        .filter-form input, .filter-form select, .filter-form button {
-            padding: 8px;
-        }
-        .csv-btn {
-            padding: 8px 15px;
-            background-color: #ff7f50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
+
+echo "
 <body>
-    <h1>Family Savings Dashboard</h1>
-
-    <nav>
-        <a href='dashboard.php'>Dashboard</a>
-        <a href='contributions.php'>Add Contribution</a>
-        <a href='loans.php'>Add Loan</a>
-        <a href='loan_repayments.php'>Pay Loan</a>
-        <strong>Reports:</strong>
-        <a href='loan_history.php'>Loan History</a>
-        <a href='loan_report.php'>Loan Repayments</a>
-        <a href='loan_summaries.php'>Loan Summaries</a>
-        <a href='contributions_history.php'>Contributions History</a>
-        <a href='login.php'>Logout</a>
-    </nav>
-
     <div class='container'>
 
         <form class='filter-form' method='GET'>
-            <input type='text' name='filter' placeholder='Search by Member Code or Name' value='$filter'>
-            <select name='loan_status'>
+            <input type='text' name='filter' class='form-input' placeholder='Search by Member Code or Name' value='$filter'>
+            <select name='loan_status' class='form-input'>
                 <option value='all' " . ($loan_status === 'all' ? 'selected' : '') . ">All Members</option>
                 <option value='with_loans' " . ($loan_status === 'with_loans' ? 'selected' : '') . ">With Loans</option>
                 <option value='without_loans' " . ($loan_status === 'without_loans' ? 'selected' : '') . ">Without Loans</option>
             </select>
             <button type='submit'>Filter</button>
-            <a href='?export=true' class='csv-btn'>Export CSV</a>
+            <button class='btn-export'> <a class='btn-export' href='?export=true' class='csv-btn'>Export</a></button>
         </form>
 
         <!-- Contributions Table -->
@@ -232,3 +140,6 @@ while ($row = $net_savings_query->fetch_assoc()) {
 }
 echo "</tbody></table></div></div></body></html>";
 ?>
+
+    </div>
+</div>

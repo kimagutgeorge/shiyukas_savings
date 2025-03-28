@@ -31,16 +31,13 @@ foreach ($member_totals as $code => &$member) {
     $expected_contribution = $weeks_elapsed * $weekly_target;
     $member['arrears'] = max(0, $expected_contribution - $member['total']);
 }
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contribution History</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+include('components/header.php');?>
+<div class="whole-page">
+    <div class="nav-bar-wrapper">
+        <?php include('components/navbar.php');?>
+    </div>
+    <div class="page-wrapper">
+    <?php include('components/topbar.php');?>
 <!-- <body>
     <h1>Member Contribution History</h1>
 
@@ -67,7 +64,6 @@ foreach ($member_totals as $code => &$member) {
         </tbody>
     </table> -->
 
-    <h2>All Contributions</h2>
     <table>
         <thead>
             <tr>
@@ -89,8 +85,7 @@ foreach ($member_totals as $code => &$member) {
             <?php endwhile; ?>
         </tbody>
     </table>
-
-    <a href="index.php" class="back-btn">Back to Dashboard</a>
-    <a href="contributions.php" class="back-btn">Add Contribution</a>
+            </div>
+            </div>
 </body>
 </html>

@@ -68,22 +68,19 @@ while ($row = $loans->fetch_assoc()) {
     $loan_data[] = $row['total_loans'];
     $loan_balances[] = $row['loan_balance'];
 }
+//header
+include('components/header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Savings Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
-    <h1>Family Savings Dashboard</h1>
-
+<div class="whole-page">
+    <div class="nav-bar-wrapper">
+        <?php include('components/navbar.php');?>
+    </div>
+    <div class="page-wrapper">
+    <?php include('components/topbar.php');?>
     <!-- Filters -->
     <form method="GET" class="filter-form">
+        <div class="form-group">
         <label for="member">Filter by Member:</label>
         <select name="member" id="member">
             <option value="">All Members</option>
@@ -93,14 +90,19 @@ while ($row = $loans->fetch_assoc()) {
                 </option>
             <?php endwhile; ?>
         </select>
-
+        </div>
+        <div class="form-group">
         <label for="start_date">From:</label>
         <input type="date" name="start_date" value="<?= htmlspecialchars($start_date) ?>">
-
+        </div>
+        <div class="form-group">
         <label for="end_date">To:</label>
         <input type="date" name="end_date" value="<?= htmlspecialchars($end_date) ?>">
-
-        <button type="submit">Apply Filters</button>
+        </div>
+        <div class="form-group">
+        <button type="submit" style="margin-top: 28px;">Apply</button>
+        </div>
+        
     </form>
 
     <!-- Loan Summaries -->
@@ -141,7 +143,8 @@ while ($row = $loans->fetch_assoc()) {
     <div class="chart-container">
         <canvas id="arrearsChart"></canvas>
     </div>
-
+    </div>
+            </div>
     <script>
         const members = <?= json_encode($member_names) ?>;
         const contributions = <?= json_encode($contribution_data) ?>;
@@ -200,6 +203,4 @@ while ($row = $loans->fetch_assoc()) {
             }
         });
     </script>
-    <a href="index.php" class="back-btn">Back to Dashboard</a>
-</body>
-</html>
+

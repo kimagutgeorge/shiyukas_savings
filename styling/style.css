@@ -1,14 +1,16 @@
 body {
     font-family: 'Arial', sans-serif;
-    padding: 20px;
     background-color: #f4f6f8;
     color: #333;
+    padding: 0px !important;
+    margin:0px !important;
 }
-
 h1 {
     color: #2a4d69;
 }
-
+a{
+    text-decoration: none;
+}
 .filter-bar {
     display: flex;
     gap: 10px;
@@ -216,4 +218,75 @@ button:hover {
 
 .add-btn:hover {
     background-color: #218838;
+}
+.whole-page{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.nav-bar-wrapper{
+    width: 20%;
+}
+.page-wrapper{
+    width:79%;
+}
+.title{
+    font-size: 24px;
+}
+.filter-form{
+    display: flex;
+    width: 90%;
+}
+.filter-form .form-input{
+    margin-right: 10px;
+}
+.filter-form button{
+    width:fit-content;
+}
+.filter-form button.btn-export{
+    background-color: #1c3d6b;
+}
+.filter-form button.btn-export a{
+    color: #ffffff;
+}
+.form-group{
+    width: 23%;
+    display: block;
+    margin-right: 2%;
+}
+.login-container .login-form .form-group{
+    width: 100%;
+}
+.top-bar{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.top-bar-title{
+    width: 50%;
+}
+.top-bar-page{
+    width: 50%;
+    text-align: right;
+}
+.welcome-message{
+    color:rgb(180, 180, 180);
+    padding: 0px;
+    margin:0px;
+    font-size: 20px;
+}
+.welcome-message span{
+    font-weight: bold;
+    color:#1c3d6b;
+}
+.top-bar-page .page-name{
+    color:rgb(180, 180, 180);
+    font-family: 15px;
+}
+.top-bar-page .page-name a{
+    font-size: 17px;
+}
+.top-bar-page .page-name span{
+    font-size: 14px;
 }

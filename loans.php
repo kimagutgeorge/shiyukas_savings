@@ -31,6 +31,7 @@ include('components/header.php');?>
     </div>
     <div class="page-wrapper">
     <?php include('components/topbar.php');?>
+    <div class="page-wrapper-inner">
     <?php if ($success_message): ?>
         <p class="success"><?= $success_message ?></p>
     <?php endif; ?>
@@ -53,6 +54,7 @@ include('components/header.php');?>
 
         <button type="submit">Add Loan</button>
     </form>
+            </div>
             </div>
             </div>
 </body>

@@ -38,6 +38,7 @@ include('components/header.php');?>
     </div>
     <div class="page-wrapper">
     <?php include('components/topbar.php');?>
+    <div class="page-wrapper-inner">
 <!-- <body>
     <h1>Member Contribution History</h1>
 
@@ -87,5 +88,6 @@ include('components/header.php');?>
     </table>
             </div>
             </div>
+        </div>
 </body>
 </html>

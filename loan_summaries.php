@@ -26,6 +26,7 @@ include('components/header.php');?>
     </div>
     <div class="page-wrapper">
     <?php include('components/topbar.php');?>
+    <div class="page-wrapper-inner">
     <table>
         <thead>
             <tr>
@@ -48,6 +49,7 @@ include('components/header.php');?>
             <?php endwhile; ?>
         </tbody>
     </table>
+            </div>
             </div>
             </div>
 </body>

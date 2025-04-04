@@ -78,6 +78,7 @@ include('components/header.php');
     </div>
     <div class="page-wrapper">
     <?php include('components/topbar.php');?>
+    <div class="page-wrapper-inner">
     <!-- Filters -->
     <form method="GET" class="filter-form">
         <div class="form-group">
@@ -144,6 +145,7 @@ include('components/header.php');
         <canvas id="arrearsChart"></canvas>
     </div>
     </div>
+            </div>
             </div>
     <script>
         const members = <?= json_encode($member_names) ?>;

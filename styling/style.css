@@ -231,6 +231,11 @@ button:hover {
 }
 .page-wrapper{
     width:79%;
+    height: 100vh;
+}
+.page-wrapper-inner{
+    height: 85vh;
+    overflow-y: scroll;
 }
 .title{
     font-size: 24px;

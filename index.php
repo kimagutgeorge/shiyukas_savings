@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
     </div>
     <div class="page-wrapper">
     <?php include('components/topbar.php');?>
+    <div class="page-wrapper-inner">
     <?php
 // Database connection
 require 'config.php';
@@ -142,4 +143,5 @@ echo "</tbody></table></div></div></body></html>";
 ?>
 
     </div>
+</div>
 </div>

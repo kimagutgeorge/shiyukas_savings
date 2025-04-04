@@ -1,0 +1,24 @@
+name: Auto Deploy to Truehost
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H selfmadeafrica.org >> ~/.ssh/known_hosts
+
+      - name: Deploy to Truehost
+        run: |
+          ssh selfmade@selfmadeafrica.org "cd /home/shiyukas/selfmadeafrica.org && git pull origin master"

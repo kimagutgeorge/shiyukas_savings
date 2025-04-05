@@ -195,6 +195,7 @@ button {
 
 button:hover {
     background-color: #005fa3;
+    transition: 0.8s;
 }
 
 .add-btn {
@@ -302,9 +303,10 @@ button:hover {
 .nav-bar-inner{
     padding-top: 50px;
     background-color: #1c3d6b;
-    height: calc(80% - 50px);
+    height: 80%;
     width: 90%;
     overflow-y: scroll;
+    overflow: hidden;
 }
 .nav-bar-inner::-webkit-scrollbar,
 .nav-bar-inner::-webkit-scrollbar-track{
@@ -322,10 +324,18 @@ button:hover {
     height: 20%;
     background-color: #1c3d6b;
     width: 90%;
+    overflow: hidden;
 }
+
 .nav-bar{
     height: 100vh;
 }
+
+.nav-bar li {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
 .nav-bar-inner li,
 .nav-bar-inner-settings li{
     padding: 10px;
@@ -338,6 +348,11 @@ button:hover {
 .nav-bar-inner-settings li a .fa-solid{
     color:#0077cc;
 }
+
+.nav-bar li:hover{
+    transform: scale(1.1);
+}
+
 .w-border{
     border-bottom: 3px solid #0077cc;
 }
